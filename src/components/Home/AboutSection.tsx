@@ -7,7 +7,7 @@ import cleaningService2 from '../../assets/images/Background.jpg'; // Temporary 
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="py-16 px-[4%] bg-white">
+    <section className="py-16 px-[4%] bg-[#F8F8F8]">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left side - Text content */}
         <div className="md:w-1/2 max-w-lg">
@@ -26,18 +26,18 @@ const AboutSection: React.FC = () => {
         
         {/* Right side - Images */}
         <div className="md:w-1/2 relative">
-          <div className="relative z-10 rounded-lg overflow-hidden border-4 border-[#FF9800]">
+          <div className="relative z-10 rounded-lg overflow-hidden border-4 border-l-0 border-b-0 border-[#FF9800]">
             <img 
               src={cleaningService1} 
               alt="Cleaning professional wiping surface" 
               className="w-full h-auto object-cover"
             />
           </div>
-          <div className="absolute -right-4 -bottom-4 z-20 rounded-lg overflow-hidden border-4 border-[#FF9800]">
+          <div className="absolute -left-20  -bottom-10 z-20 rounded-lg overflow-hidden border-l-0 border-b-0 border-4 border-[#FF9800]">
             <img 
               src={cleaningService2} 
               alt="Cleaning professional mopping floor" 
-              className="w-full h-auto object-cover"
+              className="w-[300px] h-auto object-cover"
             />
           </div>
         </div>
