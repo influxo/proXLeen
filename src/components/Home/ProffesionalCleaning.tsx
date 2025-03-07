@@ -1,19 +1,22 @@
-import React from 'react';
-import image from "../../assets/images/TruckIcons.jpg"
+import React from "react";
+import image from "../../assets/images/pcc.jpg";
 const ProfessionalCleaning: React.FC = () => {
   return (
-    <section className="py-20 px-[4%] bg-white">
+    <section className="py-28 px-[4%] bg-white">
       <div className="container mx-auto">
         {/* Top section with heading and description */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-20 gap-10">
           <div className="md:w-1/2">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Professional cleaning company</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Professional cleaning company
+            </h2>
           </div>
           <div className="md:w-1/2">
             <p className="text-gray-600 leading-relaxed">
-              Whether you are one office, store, medical practice, showroom, restaurant, apartment 
-              building, hotel or industrial facility, we are ready to provide you with cleaning 
-              solutions that meet your specific needs.
+              Whether you are one office, store, medical practice, showroom,
+              restaurant, apartment building, hotel or industrial facility, we
+              are ready to provide you with cleaning solutions that meet your
+              specific needs.
             </p>
           </div>
         </div>
