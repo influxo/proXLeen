@@ -20,35 +20,25 @@ const ProfessionalCleaning: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center  align-center items-center">
-          <img src={image} alt="" />
-        </div>
-        <div className="flex justify-center align-center items-center  flex-col-3 gap-36">
-          <div className="flex flex-col gap-2 w-[250px]">
-            <h1 className="text-xl font-bold text-[#FF9800]">Antwerp region</h1>
-            <h2>We are active in:</h2>
-            <p className="font-semibold">
-              Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom,
-              Bornem, Temse,
-            </p>
-          </div>
-          <div className="flex flex-col gap-2 w-[250px]">
-            <h1 className="text-xl font-bold text-[#FF9800]">Ghent region</h1>
-            <h2>We are active in:</h2>
-            <p className="font-semibold">
-              Aalter, Nevele, Nazareth, Wetteren, Lochristi, ...
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 w-[250px]">
-            <h1 className="text-xl font-bold text-[#FF9800]">
-              {" "}
-              Hasselt region
-            </h1>
-            <p>
-              We are active in the regions of Lummen, Zonhoven, Genk, Zutendaal,
-              Diepenbeek,
-            </p>
-          </div>
+        <div className='flex justify-center align-center items-center'>
+            <img src={image} alt="" />
+            </div>
+            <div className='flex justify-center align-center items-center pt-16 flex-col-3 lg:gap-36'>
+                <div className='flex flex-col gap-4 lg:w-[250px]'>
+                    <h1 className='text-xl font-bold text-[#FF9800]'>Antwerp region</h1>
+                    <p>Tell us when and where you want
+                    your cleaning.</p>
+                </div>
+                <div className='flex flex-col gap-4 lg:w-[250px]'>
+                <h1 className='text-xl font-bold text-[#FF9800]'>Antwerp region</h1>
+                    <p>Tell us when and where you want
+                    your cleaning.</p>
+                </div>
+                <div className='flex flex-col gap-4 lg:w-[250px]'>
+                    <h1 className='text-xl font-bold text-[#FF9800]'>Antwerp region</h1>
+                    <p>Tell us when and where you want
+                    your cleaning.</p>
+                </div>
         </div>
       </div>
     </section>
