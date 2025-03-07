@@ -19,6 +19,7 @@ const Cta: React.FC = () => {
       <div className="button-container">
         <button className="cta-button">Button 1</button>
         <button className="cta-button">Button 2</button>
+        <button className="cta-button">Button test</button>
       </div>
     </div>
   );
