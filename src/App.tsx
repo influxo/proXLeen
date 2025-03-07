@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import './App.css';
 import TopLine from './components/TopLine';
 import AboutUs from './pages/AboutUs';
+import OurServices from './pages/OurServices';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/services" element={<OurServices />} />
         </Routes>
       </Router>
     </div>
