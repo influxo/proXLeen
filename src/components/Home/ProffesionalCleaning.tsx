@@ -20,18 +20,18 @@ const ProfessionalCleaning: React.FC = () => {
         <div className='flex justify-center align-center items-center'>
             <img src={image} alt="" />
             </div>
-            <div className='flex justify-center align-center items-center pt-16 flex-col-3 gap-36'>
-                <div className='flex flex-col gap-4 w-[250px]'>
+            <div className='flex justify-center align-center items-center pt-16 flex-col-3 lg:gap-36'>
+                <div className='flex flex-col gap-4 lg:w-[250px]'>
                     <h1 className='text-xl font-bold text-[#FF9800]'>Antwerp region</h1>
                     <p>Tell us when and where you want
                     your cleaning.</p>
                 </div>
-                <div className='flex flex-col gap-4 w-[250px]'>
+                <div className='flex flex-col gap-4 lg:w-[250px]'>
                 <h1 className='text-xl font-bold text-[#FF9800]'>Antwerp region</h1>
                     <p>Tell us when and where you want
                     your cleaning.</p>
                 </div>
-                <div className='flex flex-col gap-4 w-[250px]'>
+                <div className='flex flex-col gap-4 lg:w-[250px]'>
                     <h1 className='text-xl font-bold text-[#FF9800]'>Antwerp region</h1>
                     <p>Tell us when and where you want
                     your cleaning.</p>
