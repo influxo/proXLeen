@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from '../components/Home/Hero'
 import FirstSection from '../components/AboutUs/FirstSection'
-import WelcomeToOurCompany from '../components/AboutUs/WelcomeToOurCompany'
+import WelcomeToOurCompany from '../components/WelcomeToOurCompany'
 
 const AboutUs: React.FC = () => {
   return (

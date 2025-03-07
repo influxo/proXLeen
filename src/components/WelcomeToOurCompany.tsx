@@ -1,6 +1,6 @@
 import React from 'react';
-import mainImage from '../../assets/images/WelcomeToOurCompany1.jpg';
-import secondaryImage from '../../assets/images/WelcomeToOurCompany2.jpg';
+import mainImage from '../assets/images/WelcomeToOurCompany1.jpg';
+import secondaryImage from '../assets/images/WelcomeToOurCompany2.jpg';
 
 const WelcomeToOurCompany: React.FC = () => {
   return (
