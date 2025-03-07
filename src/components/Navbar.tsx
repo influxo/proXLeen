@@ -15,10 +15,10 @@ const Navbar: React.FC = () => {
             Home
           </Link>
           <Link
-            to="/showrooms"
+            to="/about"
             className="text-white hover:text-[#FF9800] transition-colors"
           >
-            Showrooms
+            About Us
           </Link>
           <Link
             to="/services"
