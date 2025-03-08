@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-// import logo from "../../../public/testtest.svg";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className="px-[4%] py-28 bg-[#333333] text-white">
       <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
