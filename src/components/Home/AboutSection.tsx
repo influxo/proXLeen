@@ -7,8 +7,8 @@ import cleaningService2 from "../../assets/images/Background.jpg"; // Temporary 
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="py-28 px-[4%] bg-[#F8F8F8]">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    <section className="py-28  bg-[#F8F8F8]">
+      <div className="px-[10%] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left side - Text content */}
         <div className="md:w-1/2 max-w-lg">
           <h2 className="text-5xl font-bold text-gray-800 mb-6">About Us</h2>

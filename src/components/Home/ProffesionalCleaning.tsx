@@ -6,8 +6,8 @@ import icon3 from "../../assets/icons/icon3.svg";
 import image from "../../assets/images/pcc.jpg";
 const ProfessionalCleaning: React.FC = () => {
   return (
-    <section className="py-28 px-[4%] bg-white">
-      <div className="container mx-auto">
+    <section className="py-28 px-[10%] bg-white">
+      <div className="mx-auto">
         {/* Top section with heading and description */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-20 gap-10">
           <div className="md:w-1/2">
