@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
   );
 
   return (
-    <div className="relative h-screen px-[4%]">
+    <div className="relative h-screen px-[10%]">
       {/* Background image with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       ></div>
 
       {/* Navbar */}
-      <div className="sticky top-0 z-50 pt-16 px-4">
+      <div className="sticky top-0 z-50 pt-16">
         <Navbar />
       </div>
 
@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Cards Section */}
-        <div className="mb-8 px-[6%]">
+        <div className="mb-8 ">
           <div className="flex flex-col md:flex-row justify-between gap-6">
             <div className="bg-black/10 backdrop-blur-md rounded-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:scale-105">
               <p className="text-base text-gray-200">
