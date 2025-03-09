@@ -3,23 +3,21 @@ import bgImage from "../assets/images/Background.jpg";
 
 const Cta: React.FC = () => {
   return (
-    <div
-      className="brightness-75"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        height: "500px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <h1>Your Centered Text Here</h1>
-      <div className="button-container">
-        <button className="cta-button">Button 1</button>
-        <button className="cta-button">Button 2</button>
-        <button className="cta-button">Button test</button>
+    <div className="relative">
+      <img
+        src={bgImage}
+        alt=""
+        className="h-[500px] brightness-75 w-full object-cover"
+      />
+      <div className="absolute inset-0 flex flex-col justify-center items-center">
+        <h1 className="text-3xl font-bold text-white mb-4">
+          Your Centered Text Here
+        </h1>
+        <div className="flex gap-4 justify-between">
+          <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors">
+            Get a quote
+          </button>
+        </div>
       </div>
     </div>
   );
