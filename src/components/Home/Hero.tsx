@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Cards Section */}
-        <div className="mb-8 ">
+        <div className="mb-8 hidden md:block">
           <div className="flex flex-col md:flex-row justify-between gap-6">
             <div className="bg-black/10 backdrop-blur-md rounded-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:scale-105">
               <p className="text-base text-gray-200">

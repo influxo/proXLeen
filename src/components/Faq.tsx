@@ -37,7 +37,7 @@ const Faq: React.FC = () => {
 
   return (
     <div className="bg-gray-100 flex flex-col items-center py-16 xl:py-0 w-full">
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center justify-items-center pr-[4%] xl:pr-0 xl:pl-[10%]">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center justify-items-center pl-[10%] pr-[10%] xl:pr-0 xl:pl-[10%]">
         {/* Left Side: Title and FAQ */}
         <div className="py-10">
           <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
