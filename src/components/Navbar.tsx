@@ -56,29 +56,12 @@ const Navbar: React.FC = () => {
             >
               About Us
             </Link>
-            <Link
-              to="/showrooms"
-              className="text-white hover:text-[#FF9800] transition-colors"
-            >
-              Showrooms
-            </Link>
+
             <Link
               to="/services"
               className="text-white hover:text-[#FF9800] transition-colors"
             >
               Services
-            </Link>
-            <Link
-              to="/medical-areas"
-              className="text-white hover:text-[#FF9800] transition-colors"
-            >
-              Medical Areas
-            </Link>
-            <Link
-              to="/facade-cleaning"
-              className="text-white hover:text-[#FF9800] transition-colors"
-            >
-              Facade Cleaning
             </Link>
           </div>
 
