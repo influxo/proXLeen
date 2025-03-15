@@ -2,7 +2,7 @@ import React from "react";
 
 const TopLine: React.FC = () => {
   return (
-    <div className="bg-[#FF9800] px-[10%] fixed h-12 flex justify-between items-center w-full z-50 text-white py-2">
+    <div className="bg-[#FF9800] px-[10%] fixed h-12 hidden lg:flex justify-between items-center w-full z-50 text-white py-2">
       <div className="flex items-center space-x-4">
         <div className="flex items-center">
           <svg
