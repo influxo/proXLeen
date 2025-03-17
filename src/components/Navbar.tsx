@@ -18,12 +18,12 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="md:bg-black/10 py-4 lg:px-[4%] rounded-[20px] mx-auto md:border md:border-white/10 w-full md:backdrop-blur-md">
+      <nav className="lg:bg-black/10 py-4 lg:px-[4%] rounded-[20px] mx-auto lg:border lg:border-white/10 w-full lg:backdrop-blur-md">
         <div className="flex items-center justify-between">
           {/* Mobile Menu Button */}
           <button
             onClick={toggleDrawer}
-            className="text-white p-2 md:hidden"
+            className="text-white p-2 lg:hidden"
             aria-label="Toggle Menu"
           >
             <svg
@@ -39,11 +39,11 @@ const Navbar: React.FC = () => {
             </svg>
           </button>
 
-          <div className="text-white font-bold text-xl hidden md:block">
+          <div className="text-white font-bold text-xl hidden lg:block">
             LOGO
           </div>
 
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden lg:flex space-x-8">
             <Link
               to="/"
               className="text-white hover:text-[#FF9800] transition-colors"
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
 
           <Link
             to="/contact"
-            className="bg-[#FF9800] hover:bg-[#ff9900e6] text-white font-medium py-3 px-6 rounded-md transition-colors hidden md:block"
+            className="bg-[#FF9800] hover:bg-[#ff9900e6] text-white font-medium py-3 px-6 rounded-md transition-colors hidden lg:block"
           >
             Contact Us
           </Link>
