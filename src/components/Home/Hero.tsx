@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       ></div>
 
       {/* Navbar */}
-      <div className="sticky top-0 z-50 pt-16">
+      <div className="sticky top-0 z-50 md:pt-16">
         <Navbar />
       </div>
 
