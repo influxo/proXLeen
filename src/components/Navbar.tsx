@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "../assets/images/OrangeLogo.png"
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +41,7 @@ const Navbar: React.FC = () => {
           </button>
 
           <div className="text-white font-bold text-xl hidden lg:block">
-            LOGO
+            <img src={Logo} className="w-[250px]" alt="" />
           </div>
 
           <div className="hidden lg:flex space-x-8">
@@ -88,7 +89,7 @@ const Navbar: React.FC = () => {
       >
         <div className="p-6 space-y-4">
           <div className="flex justify-between items-center mb-8">
-            <div className="text-white font-bold text-xl">LOGO</div>
+            <div className="text-white font-bold text-xl"><img src={Logo} className="w-[250px]" alt="" /></div>
             <button
               onClick={toggleDrawer}
               className="text-white p-2"

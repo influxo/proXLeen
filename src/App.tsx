@@ -7,6 +7,7 @@ import AboutUs from "./pages/AboutUs";
 import OurServices from "./pages/OurServices";
 import { Footer } from "./components/Footer";
 import { FaArrowUp } from "react-icons/fa";
+import Contact from "./pages/Contact";
 
 const App: React.FC = () => {
   const handleScrollTop = () => {
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/services" element={<OurServices />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
 
         <Footer />
