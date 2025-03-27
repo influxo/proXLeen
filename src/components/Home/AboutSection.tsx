@@ -7,10 +7,10 @@ import cleaningService2 from "../../assets/images/Background.jpg"; // Temporary 
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="py-28 px-[4%] bg-[#F8F8F8]">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    <section className="py-28  bg-[#F8F8F8]">
+      <div className="px-[10%] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Left side - Text content */}
-        <div className="md:w-1/2 max-w-lg">
+        <div className="lg:w-1/2 xl:max-w-lg">
           <h2 className="text-5xl font-bold text-gray-800 mb-6">About Us</h2>
           <p className="text-black font-normal mb-8 leading-relaxed text-xl">
             Professional maintenance is essential to create a clean and safe
@@ -27,7 +27,7 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Right side - Images */}
-        <div className="md:w-1/2 relative">
+        <div className="lg:w-1/2 relative">
           <div className="relative z-10 rounded-lg overflow-hidden border-4 border-l-0 border-b-0 border-[#FF9800]">
             <img
               src={cleaningService1}
@@ -35,7 +35,7 @@ const AboutSection: React.FC = () => {
               className="w-full h-auto object-cover rounded-sm"
             />
           </div>
-          <div className="absolute -left-40  -bottom-10 z-20 rounded-lg overflow-hidden border-l-0 border-b-0 border-4 border-white">
+          <div className="absolute -left-40 lg:hidden xl:block -bottom-10 z-20 rounded-lg overflow-hidden border-l-0 border-b-0 border-4 border-white">
             <img
               src={cleaningService2}
               alt="Cleaning professional mopping floor"
