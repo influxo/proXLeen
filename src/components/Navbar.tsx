@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/images/OrangeLogo.png"
+import Logo from "../assets/images/OrangeLogo.png";
 import Gradient_Btn from "./Gradient_Btn";
 
 const Navbar: React.FC = () => {
@@ -67,10 +67,7 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          <Link
-            to="/contact"
-            className=""
-          >
+          <Link to="/contact" className="">
             <Gradient_Btn text="Contact Us" />
           </Link>
         </div>
@@ -90,7 +87,9 @@ const Navbar: React.FC = () => {
       >
         <div className="p-6 space-y-4">
           <div className="flex justify-between items-center mb-8">
-            <div className="text-white font-bold text-xl"><img src={Logo} className="w-[250px]" alt="" /></div>
+            <div className="text-white font-bold text-xl">
+              <img src={Logo} className="w-[250px]" alt="" />
+            </div>
             <button
               onClick={toggleDrawer}
               className="text-white p-2"
