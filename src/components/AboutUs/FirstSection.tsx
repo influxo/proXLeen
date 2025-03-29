@@ -1,5 +1,6 @@
 import React from "react";
 import bottleImage from "../../assets/images/bottle.jpg";
+import Gradient_Btn from "../Gradient_Btn";
 
 const FirstSection: React.FC = () => {
   return (
@@ -54,9 +55,7 @@ const FirstSection: React.FC = () => {
             your reliable partner, with more than 15 years of experience, for
             high-quality cleaning services in various professional environments.
           </p>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors">
-            Get a quote
-          </button>
+          <Gradient_Btn text="Get a quote" />
         </div>
       </div>
     </div>
