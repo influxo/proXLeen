@@ -4,8 +4,16 @@ import { Link } from "react-router-dom";
 // Placeholder imports - replace with actual images when available
 import cleaningService1 from "../../assets/images/Background.jpg"; // Temporary placeholder
 import cleaningService2 from "../../assets/images/Background.jpg"; // Temporary placeholder
+import Gradient_Btn from "../Gradient_Btn";
 
 const AboutSection: React.FC = () => {
+  const handleScrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="py-28  bg-[#F8F8F8]">
       <div className="px-[10%] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -20,9 +28,9 @@ const AboutSection: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-[#FF9800] hover:bg-[#ff9900e6] text-white font-medium py-3 px-6 rounded-md transition-colors"
+            className=""
           >
-            Get a quote
+            <Gradient_Btn text="Get a quote" onClick={handleScrollTop}/>
           </Link>
         </div>
 

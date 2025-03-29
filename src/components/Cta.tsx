@@ -1,7 +1,17 @@
 import React from "react";
 import bgImage from "../assets/images/Background.jpg";
+import Gradient_Btn from "./Gradient_Btn";
+import { Link } from "react-router-dom";
 
 const Cta: React.FC = () => {
+
+  const handleScrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="relative">
       <img
@@ -14,9 +24,9 @@ const Cta: React.FC = () => {
           Your Centered Text Here
         </h1>
         <div className="flex gap-4 justify-between">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors">
-            Get a quote
-          </button>
+          <Link to="/contact">
+          <Gradient_Btn text="Get a quote" onClick={handleScrollTop}/>
+          </Link>
         </div>
       </div>
     </div>
