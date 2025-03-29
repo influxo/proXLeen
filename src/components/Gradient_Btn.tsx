@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface GradientBtnProps {
   text: string;
@@ -15,56 +15,49 @@ const Gradient_Btn: React.FC<GradientBtnProps> = ({
   className = '',
   type = 'button',
   disabled = false,
-  gradientOnHover = true,
+  gradientOnHover = false,
 }) => {
-  const gradientStyle = {
-    background: 'linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)',
-    backgroundSize: '200% 100%',
-  };
-
-  const defaultStyle = gradientOnHover 
-    ? gradientStyle 
-    : { 
+  const [hovered, setHovered] = useState(false);
+  
+  // Define styles based on props and hover state
+  let buttonStyle = {};
+  
+  if (gradientOnHover === false) {
+    // Default gradient style (always gradient)
+    buttonStyle = {
+      background: 'linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)',
+      backgroundSize: '200% 100%',
+      backgroundPosition: hovered ? '100% 0' : '0% 0',
+      color: 'white',
+      borderRight: '0.5px solid transparent', // Add transparent border to maintain size
+    };
+  } else {
+    // White background that changes to gradient on hover
+    if (hovered) {
+      buttonStyle = {
+        background: 'linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)',
+        backgroundSize: '200% 100%',
+        color: 'white',
+        borderRight: '0.5px solid transparent' // Transparent border when showing gradient
+      };
+    } else {
+      buttonStyle = {
         background: 'white',
         color: 'black',
-        border: '1px solid #e5e7eb'
+        border: '1px solid #e5e7eb',
       };
-
-  const hoverHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const target = e.currentTarget;
-    if (gradientOnHover) {
-      target.style.backgroundPosition = '100% 0';
-    } else {
-      target.style.background = gradientStyle.background;
-      target.style.backgroundSize = gradientStyle.backgroundSize;
-      target.style.color = 'white';
-      target.style.border = 'none';
     }
-  };
-
-  const leaveHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const target = e.currentTarget;
-    if (gradientOnHover) {
-      target.style.backgroundPosition = '0% 0';
-    } else {
-      target.style.background = 'white';
-      target.style.color = 'black';
-      target.style.border = '1px solid #e5e7eb';
-    }
-  };
+  }
 
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`relative px-6 py-3 rounded-md font-medium transition-all duration-300 overflow-hidden ${className}`}
-      style={{
-        ...defaultStyle,
-        color: gradientOnHover ? 'white' : 'black',
-      }}
-      onMouseEnter={hoverHandler}
-      onMouseLeave={leaveHandler}
+      className={`relative px-6 py-3 rounded-md font-medium transition-all duration-100 overflow-hidden ${className}`}
+      style={buttonStyle}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {text}
     </button>
