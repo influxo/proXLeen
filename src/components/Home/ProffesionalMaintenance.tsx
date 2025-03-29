@@ -1,5 +1,7 @@
 import React from "react";
 import img from "../../assets/images/Image.jpg";
+import { Link } from "react-router-dom";
+import Gradient_Btn from "../Gradient_Btn";
 const ProffesionalMaintenance: React.FC = () => {
   return (
     <section className="py-20 px-[10%] bg-gray-50">
@@ -41,9 +43,9 @@ const ProffesionalMaintenance: React.FC = () => {
               we are here for you.
             </p>
 
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors">
-              Get a quote
-            </button>
+           <Link to="/contact">
+           <Gradient_Btn text="Get a quote" />
+           </Link>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import Gradient_Btn from "../Gradient_Btn";
 
 // Define the service type
 interface Service {
@@ -13,7 +14,7 @@ interface Service {
 }
 
 const ServiceSlider: React.FC = () => {
-  let sliderRef = useRef<Slider | null>(null);
+  const sliderRef = useRef<Slider | null>(null);
   const next = () => {
     if (sliderRef.current) {
       sliderRef.current.slickNext();
@@ -115,18 +116,8 @@ const ServiceSlider: React.FC = () => {
           </div>
           <div className="flex-col justify-between w-1/2 items-end text-right ">
             <div className="flex gap-4 justify-end">
-              <button
-                onClick={previous}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors"
-              >
-                Prev
-              </button>
-              <button
-                onClick={next}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors"
-              >
-                Next
-              </button>
+              <Gradient_Btn text="Prev" onClick={previous} gradientOnHover={true}/>
+              <Gradient_Btn text="Next" onClick={next} gradientOnHover={true}/>
             </div>
           </div>
         </div>

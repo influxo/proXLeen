@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/OrangeLogo.png"
+import Gradient_Btn from "./Gradient_Btn";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,9 +69,9 @@ const Navbar: React.FC = () => {
 
           <Link
             to="/contact"
-            className="bg-[#FF9800] hover:bg-[#ff9900e6] text-white font-medium py-3 px-6 rounded-md transition-colors hidden lg:block"
+            className=""
           >
-            Contact Us
+            <Gradient_Btn text="Contact Us" />
           </Link>
         </div>
       </nav>
