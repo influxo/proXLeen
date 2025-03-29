@@ -6,6 +6,7 @@ import ProffesionalMaintenance from "../components/Home/ProffesionalMaintenance"
 import ServiceSlider from "../components/Home/ServiceSlider";
 import Cta from "../components/Cta";
 import Faq from "../components/Faq";
+import GradientCard from "../components/GradientCard";
 
 const Home: React.FC = () => {
   return (
@@ -17,6 +18,9 @@ const Home: React.FC = () => {
       <ProffesionalMaintenance />
       <ServiceSlider />
       <Faq />
+      <div className="px-[10%] py-32">
+        <GradientCard title="We specialises in the following." />
+      </div>
     </div>
   );
 };
