@@ -12,7 +12,7 @@ const Faq: React.FC = () => {
     {
       question: "What areas do you serve?",
       answer:
-        "We proudly serve southeast Michigan for residential projects and offer statewide coverage for commercial and industrial work. If you’re located out of state, don’t hesitate to reach out! We’re more than willing to travel. If you’re unsure whether we cover your area, feel free to contact us—we’d be happy to assist you.",
+        "We proudly serve southeast Michigan for residential projects and offer statewide coverage for commercial and industrial work. If you're located out of state, don't hesitate to reach out! We're more than willing to travel. If you're unsure whether we cover your area, feel free to contact us—we'd be happy to assist you.",
     },
     {
       question: "Are your services environmentally friendly?",
@@ -41,26 +41,37 @@ const Faq: React.FC = () => {
         {/* Left Side: Title and FAQ */}
         <div className="py-10">
           <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
-            Relax, we’re always here for you!
+            Relax, we're always here for you!
           </h2>
           <p className="text-lg text-gray-600 mb-10">
-            Whether it’s flooring solutions, expert advice, or reliable
-            services, we’re dedicated to making your experience seamless and
-            stress-free. Let’s bring your vision to life!
+            Whether it's flooring solutions, expert advice, or reliable
+            services, we're dedicated to making your experience seamless and
+            stress-free. Let's bring your vision to life!
           </p>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className={`rounded-lg overflow-hidden transition-all ${
+                className={`rounded-lg overflow-hidden transition-all relative ${
                   activeIndex === index
-                    ? "bg-blue-50 border-l-4 border-[#FF8C00]"
+                    ? "bg-blue-50"
                     : "bg-white shadow-sm"
                 }`}
               >
+                {activeIndex === index && (
+                  <div 
+                    className="absolute left-0 top-0 bottom-0"
+                    style={{
+                      width: "4px",
+                      background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+                    }}
+                  />
+                )}
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex justify-between items-center py-5 px-6 text-left text-gray-800 focus:outline-none"
+                  className={`w-full flex justify-between items-center py-5 px-6 text-left text-gray-800 focus:outline-none ${
+                    activeIndex === index ? "pl-8" : ""
+                  }`}
                 >
                   <span
                     className={`text-lg font-medium ${
@@ -88,7 +99,9 @@ const Faq: React.FC = () => {
                     }
                   }}
                 >
-                  <div className="px-6 pb-5 text-gray-700 text-md leading-relaxed">
+                  <div className={`px-6 pb-5 text-gray-700 text-md leading-relaxed ${
+                    activeIndex === index ? "pl-8" : ""
+                  }`}>
                     {faq.answer}
                   </div>
                 </div>
@@ -98,17 +111,37 @@ const Faq: React.FC = () => {
         </div>
 
         {/* Right Side: Image */}
-
         <div className="w-full h-[1000px] xl:h-[830px] hidden xl:flex items-center overflow-hidden">
-          <div
-            className="w-full h-full"
-            style={{ clipPath: "polygon(5% 0, 100% 0, 100% 100%, 0 100%)" }}
-          >
-            <img
-              src={hero}
-              alt="image"
-              className="w-full h-full object-cover"
+          {/* Image with Left Gradient Border */}
+          <div className="relative w-full h-full">
+            {/* Gradient Background - slightly larger than the image */}
+            <div 
+              className="absolute w-full h-full"
+              style={{ 
+                background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+                clipPath: "polygon(4.8% 0, 100% 0, 100% 100%, -0.6% 105%)",
+              }}
             />
+            
+            {/* Main Image - slightly smaller to reveal gradient as border */}
+            <div
+              className="absolute w-full h-full"
+              style={{ 
+                clipPath: "polygon(5% 0, 100% 0, 100% 100%, 0% 100%)",
+                top: "0px",
+                left: "1px",
+                right: "0px",
+                bottom: "0px"
+              }}
+            >
+              <div className="w-full h-full bg-white">
+                 <img
+                  src={hero}
+                  alt="image"
+                  className="w-full h-full object-cover"
+                /> 
+              </div> 
+             </div> 
           </div>
         </div>
       </div>
