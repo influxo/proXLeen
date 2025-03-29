@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="relative bg-white min-h-screen">
-      <div className="absolute top-16 z-50 px-[10%] w-full">
+      <div className="absolute lg:top-16 z-50 px-[10%] w-full">
         <Navbar />
       </div>
 
@@ -49,17 +49,22 @@ const Contact: React.FC = () => {
         <img
           src={backgroundImage}
           alt="Background"
-          className="absolute top-0 left-0 w-full object-cover z-0 brightness-75"
+          className="absolute top-0 left-0 w-full object-cover z-0 brightness-75 hidden lg:block"
           style={{
             height: "900px",
             clipPath: "polygon(0 0, 100% 0, 100% 80%, 0 100%)",
           }}
         />
+        <img
+          src={backgroundImage}
+          alt="Background"
+          className="block lg:hidden absolute top-0 left-0 w-full object-cover z-0 brightness-75 h-screen"
+        />
 
-        <div className="px-[10%]  py-16 relative z-10">
-          <div className="flex flex-col lg:flex-row justify-between items-center">
+        <div className="px-[10%]  lg:py-16 relative z-10">
+          <div className="flex flex-col lg:flex-row justify-between lg:items-center">
             {/* Left side - Contact Information */}
-            <div className="text-white p-10 lg:w-1/2 relative">
+            <div className="text-white lg:p-10 lg:w-1/2 relative hidden lg:block">
               <div className=" lg:ml-auto lg:mr-0 lg:pr-10">
                 <h2 className="text-5xl font-bold mb-6">Contact us</h2>
                 <p className="mb-8 opacity-90">
@@ -95,8 +100,8 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Right side - Contact Form */}
-            <div className="pl-6">
-              <div className="bg-white rounded-2xl shadow-lg p-8 max-w-xl  lg:mr-auto lg:ml-0">
+            <div className="lg:pl-6">
+              <div className="bg-white rounded-2xl shadow-lg p-8 lg:max-w-xl  lg:mr-auto lg:ml-0">
                 <h3 className="text-xl font-semibold mb-4">
                   Request A Quote — let's work together.
                 </h3>
