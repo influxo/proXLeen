@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import Gradient_Btn from "../Gradient_Btn";
 import star from "../../assets/icons/StarSVG.svg";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 // Define the service type
 interface Service {
@@ -126,11 +127,15 @@ const ServiceSlider: React.FC = () => {
           <div className="flex-col justify-between w-1/2 items-end text-right ">
             <div className="flex gap-4 justify-end">
               <Gradient_Btn
-                text="Prev"
+                text={<FaArrowLeftLong />}
                 onClick={previous}
                 gradientOnHover={true}
               />
-              <Gradient_Btn text="Next" onClick={next} gradientOnHover={true} />
+              <Gradient_Btn
+                text={<FaArrowRightLong />}
+                onClick={next}
+                gradientOnHover={true}
+              />
             </div>
           </div>
         </div>
