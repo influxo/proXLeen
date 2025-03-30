@@ -16,8 +16,14 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section className="py-28  bg-[#F8F8F8]">
-      <div className="px-[10%] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+    <section className="py-28 bg-[#F8F8F8] relative">
+      <div
+        className="absolute inset-0 bg-[#FF9800]"
+        style={{
+          clipPath: "polygon(0 98%, 100% 75%, 100% 100%, 0 100%)",
+        }}
+      ></div>
+      <div className="relative z-10 px-[10%] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Left side - Text content */}
         <div className="lg:w-1/2 xl:max-w-lg">
           <img src={star} alt="" className="w-14 -ml-3 mb-2" />
