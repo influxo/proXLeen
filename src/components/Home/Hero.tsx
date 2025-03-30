@@ -1,18 +1,10 @@
 import React from "react";
 import backgroundImage from "../../assets/images/Background.jpg";
+import rocket from "../../assets/icons/Rocket.svg";
+import happy from "../../assets/icons/HappyClients.svg";
 import Navbar from "../Navbar";
 
 const Hero: React.FC = () => {
-  const StarRating = () => (
-    <div className="flex justify-center gap-1 text-2xl text-[#FF9800] font-bold my-1">
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
-    </div>
-  );
-
   return (
     <div className="relative h-screen px-[10%]">
       {/* Background image with overlay */}
@@ -50,31 +42,60 @@ const Hero: React.FC = () => {
 
         {/* Cards Section */}
         <div className="mb-8 hidden md:block">
-          <div className="flex flex-col md:flex-row justify-between gap-6">
-            <div className="bg-black/10 backdrop-blur-md rounded-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:scale-105">
-              <p className="text-base text-gray-200">
-                Over 2,500 satisfied customers
-              </p>
-              <StarRating />
-              <p className="text-lg font-semibold text-white">
-                Trusted Service
-              </p>
+          <div className="flex flex-col md:flex-row justify-between gap-14">
+            <div
+              className="bg-black/10 flex justify-center gap-4 items-center backdrop-blur-md rounded-none rounded-tr-lg rounded-bl-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:-translate-y-1"
+              style={{
+                borderWidth: "2px",
+                borderStyle: "solid",
+                borderImage: "linear-gradient(45deg, #FF512F, #F09819) 1",
+              }}
+            >
+              <img src={happy} alt="" className="w-14" />
+              <div className="flex flex-col  justify-center">
+                <p className="text-3xl font-bold text-white text-start">
+                  567+{" "}
+                </p>
+                <p className="text-lg font-semibold text-white">
+                  Happy Customers
+                </p>
+              </div>
             </div>
 
-            <div className="bg-black/10 backdrop-blur-md rounded-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:scale-105">
-              <p className="text-base text-gray-200">
-                Professional team of experts
-              </p>
-              <StarRating />
-              <p className="text-lg font-semibold text-white">Expert Team</p>
+            <div
+              className="bg-black/10 flex justify-center gap-4 items-center backdrop-blur-md rounded-none rounded-tr-lg rounded-bl-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:-translate-y-1"
+              style={{
+                borderWidth: "2px",
+                borderStyle: "solid",
+                borderImage: "linear-gradient(45deg, #FF512F, #F09819) 1",
+              }}
+            >
+              <img src={rocket} alt="" className="w-14" />
+              <div className="flex flex-col  justify-center">
+                <p className="text-3xl font-bold text-white text-start">
+                  567+{" "}
+                </p>
+                <p className="text-lg font-semibold text-white">
+                  Project Complete
+                </p>
+              </div>
             </div>
 
-            <div className="bg-black/10 backdrop-blur-md rounded-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:scale-105">
-              <p className="text-base text-gray-200">
-                100% satisfaction guaranteed
-              </p>
-              <StarRating />
-              <p className="text-lg font-semibold text-white">Guaranteed</p>
+            <div
+              className="bg-black/10 flex justify-center gap-4 items-center backdrop-blur-md rounded-none rounded-tr-lg rounded-bl-lg p-5 text-center flex-1 transform transition-transform duration-300 hover:-translate-y-1"
+              style={{
+                borderWidth: "2px",
+                borderStyle: "solid",
+                borderImage: "linear-gradient(45deg, #FF512F, #F09819) 1",
+              }}
+            >
+              <img src={rocket} alt="" className="w-14" />
+              <div className="flex flex-col  justify-center">
+                <p className="text-3xl font-bold text-white text-start">10+ </p>
+                <p className="text-lg font-semibold text-white">
+                  Years of Experience
+                </p>
+              </div>
             </div>
           </div>
         </div>

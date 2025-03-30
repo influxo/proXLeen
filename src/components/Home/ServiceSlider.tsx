@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import Gradient_Btn from "../Gradient_Btn";
+import star from "../../assets/icons/StarSVG.svg";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 // Define the service type
 interface Service {
@@ -111,6 +113,7 @@ const ServiceSlider: React.FC = () => {
   return (
     <section className="py-20 px-[10%] bg-white">
       <div className="">
+        <img src={star} alt="" className="w-14 -ml-3 mb-2" />
         <div className="flex flex-col lg:flex-row justify-between">
           <div className="mb-12 lg:w-1/2 text-left">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -123,14 +126,28 @@ const ServiceSlider: React.FC = () => {
           </div>
           <div className="flex-col justify-between w-1/2 items-end text-right ">
             <div className="flex gap-4 justify-end">
-              <Gradient_Btn text="Prev" onClick={previous} gradientOnHover={true}/>
-              <Gradient_Btn text="Next" onClick={next} gradientOnHover={true}/>
+              <Gradient_Btn
+                text={<FaArrowLeftLong />}
+                onClick={previous}
+                gradientOnHover={true}
+              />
+              <Gradient_Btn
+                text={<FaArrowRightLong />}
+                onClick={next}
+                gradientOnHover={true}
+              />
             </div>
           </div>
         </div>
         <div className="flex justify-end">
           <Link to="/services">
-            <Gradient_Btn text="View all services" onClick={() => {scrollToTop()}} className="mb-5"/>
+            <Gradient_Btn
+              text="View all services"
+              onClick={() => {
+                scrollToTop();
+              }}
+              className="mb-5"
+            />
           </Link>
         </div>
 
@@ -147,7 +164,14 @@ const ServiceSlider: React.FC = () => {
                   </h3>
                   <p className="text-gray-600">{service.description}</p>
                   <Link to="/services">
-                    <Gradient_Btn text="Learn more" onClick={() => {scrollToTop()}} gradientOnHover={true} className="mt-6"/>
+                    <Gradient_Btn
+                      text="Learn more"
+                      onClick={() => {
+                        scrollToTop();
+                      }}
+                      gradientOnHover={true}
+                      className="mt-6"
+                    />
                   </Link>
                 </div>
               </div>

@@ -6,41 +6,46 @@ import Gradient_Btn from "./Gradient_Btn";
 const WelcomeToOurCompany: React.FC = () => {
   return (
     <div className="px-[10%] py-16 md:py-24">
-      <div className="flex flex-col md:flex-row items-center gap-12">
+      <div className="flex flex-col lg:flex-row items-center gap-12">
         {/* Image Section */}
         <div className="relative flex-1">
           <div className="relative">
             {/* Main image with gradient border */}
             <div className="relative">
               {/* The actual image */}
-              <div className="relative" style={{ marginTop: "4px", marginLeft: "4px" }}>
+              <div
+                className="relative"
+                style={{ marginTop: "4px", marginLeft: "4px" }}
+              >
                 <img
                   src={mainImage}
                   alt="Cleaning professionals team"
                   className="w-full rounded-lg shadow-md"
                 />
-                
+
                 {/* Gradient borders - positioned absolutely to be directly on the image */}
-                <div 
+                <div
                   className="absolute top-0 left-0 h-1 w-full rounded-tl-lg rounded-tr-lg"
-                  style={{ 
-                    background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
-                    transform: "translateY(-100%)"
+                  style={{
+                    background:
+                      "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+                    transform: "translateY(-100%)",
                   }}
                 ></div>
-                
-                <div 
+
+                <div
                   className="absolute top-0 left-0 w-1 h-full rounded-tl-lg rounded-bl-lg"
-                  style={{ 
-                    background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
-                    transform: "translateX(-100%)"
+                  style={{
+                    background:
+                      "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+                    transform: "translateX(-100%)",
                   }}
                 ></div>
               </div>
             </div>
 
             {/* Overlapping image */}
-            <div className="absolute bottom-[-40px] right-[-40px] w-1/3 z-10" >
+            <div className="absolute bottom-[-40px] right-[-40px] w-1/3 z-10">
               <img
                 src={secondaryImage}
                 alt="Cleaning professional at work"
