@@ -4,11 +4,13 @@ import icon2 from "../../assets/icons/icon2.svg";
 import icon3 from "../../assets/icons/icon3.svg";
 
 import image from "../../assets/images/pcc.jpg";
+import star from "../../assets/icons/StarSVG.svg";
 const ProfessionalCleaning: React.FC = () => {
   return (
     <section className="py-28 px-[10%] bg-white">
       <div className="mx-auto">
         {/* Top section with heading and description */}
+        <img src={star} alt="" className="w-14 -ml-3 mb-2" />
         <div className="flex flex-col lg:flex-row justify-between items-start mb-20 gap-10">
           <div className="lg:w-1/2">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">

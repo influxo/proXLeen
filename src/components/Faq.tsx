@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import hero from "../assets/images/Background.jpg";
+import star from "../assets/icons/StarSVG.svg";
 
 const Faq: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -40,6 +41,7 @@ const Faq: React.FC = () => {
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center justify-items-center pl-[10%] pr-[10%] xl:pr-0 xl:pl-[10%]">
         {/* Left Side: Title and FAQ */}
         <div className="py-10">
+          <img src={star} alt="" className="w-14 -ml-3 mb-2" />
           <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
             Relax, we're always here for you!
           </h2>
@@ -53,17 +55,16 @@ const Faq: React.FC = () => {
               <div
                 key={index}
                 className={`rounded-lg overflow-hidden transition-all relative ${
-                  activeIndex === index
-                    ? "bg-blue-50"
-                    : "bg-white shadow-sm"
+                  activeIndex === index ? "bg-blue-50" : "bg-white shadow-sm"
                 }`}
               >
                 {activeIndex === index && (
-                  <div 
+                  <div
                     className="absolute left-0 top-0 bottom-0"
                     style={{
                       width: "4px",
-                      background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+                      background:
+                        "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
                     }}
                   />
                 )}
@@ -99,9 +100,11 @@ const Faq: React.FC = () => {
                     }
                   }}
                 >
-                  <div className={`px-6 pb-5 text-gray-700 text-md leading-relaxed ${
-                    activeIndex === index ? "pl-8" : ""
-                  }`}>
+                  <div
+                    className={`px-6 pb-5 text-gray-700 text-md leading-relaxed ${
+                      activeIndex === index ? "pl-8" : ""
+                    }`}
+                  >
                     {faq.answer}
                   </div>
                 </div>
@@ -115,33 +118,34 @@ const Faq: React.FC = () => {
           {/* Image with Left Gradient Border */}
           <div className="relative w-full h-full">
             {/* Gradient Background - slightly larger than the image */}
-            <div 
+            <div
               className="absolute w-full h-full"
-              style={{ 
-                background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+              style={{
+                background:
+                  "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
                 clipPath: "polygon(4.8% 0, 100% 0, 100% 100%, -0.6% 105%)",
               }}
             />
-            
+
             {/* Main Image - slightly smaller to reveal gradient as border */}
             <div
               className="absolute w-full h-full"
-              style={{ 
+              style={{
                 clipPath: "polygon(5% 0, 100% 0, 100% 100%, 0% 100%)",
                 top: "0px",
                 left: "1px",
                 right: "0px",
-                bottom: "0px"
+                bottom: "0px",
               }}
             >
               <div className="w-full h-full bg-white">
-                 <img
+                <img
                   src={hero}
                   alt="image"
                   className="w-full h-full object-cover"
-                /> 
-              </div> 
-             </div> 
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

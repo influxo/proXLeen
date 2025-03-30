@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // Placeholder imports - replace with actual images when available
 import cleaningService1 from "../../assets/images/Background.jpg"; // Temporary placeholder
 import cleaningService2 from "../../assets/images/Background.jpg"; // Temporary placeholder
+import star from "../../assets/icons/StarSVG.svg";
 import Gradient_Btn from "../Gradient_Btn";
 
 const AboutSection: React.FC = () => {
@@ -19,6 +20,7 @@ const AboutSection: React.FC = () => {
       <div className="px-[10%] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Left side - Text content */}
         <div className="lg:w-1/2 xl:max-w-lg">
+          <img src={star} alt="" className="w-14 -ml-3 mb-2" />
           <h2 className="text-5xl font-bold text-gray-800 mb-6">About Us</h2>
           <p className="text-black font-normal mb-8 leading-relaxed text-xl">
             Professional maintenance is essential to create a clean and safe
@@ -26,11 +28,8 @@ const AboutSection: React.FC = () => {
             your reliable partner, with more than 15 years of experience, for
             high-quality cleaning services in various professional environments.
           </p>
-          <Link
-            to="/contact"
-            className=""
-          >
-            <Gradient_Btn text="Get a quote" onClick={handleScrollTop}/>
+          <Link to="/contact" className="">
+            <Gradient_Btn text="Get a quote" onClick={handleScrollTop} />
           </Link>
         </div>
 
