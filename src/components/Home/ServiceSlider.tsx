@@ -14,6 +14,13 @@ interface Service {
 }
 
 const ServiceSlider: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const sliderRef = useRef<Slider | null>(null);
   const next = () => {
     if (sliderRef.current) {
@@ -123,9 +130,7 @@ const ServiceSlider: React.FC = () => {
         </div>
         <div className="flex justify-end">
           <Link to="/services">
-            <button className=" border-[#666666] border-2 font-medium py-3 px-6 rounded-md transition-colors mb-2">
-              View all services
-            </button>
+            <Gradient_Btn text="View all services" onClick={() => {scrollToTop()}} className="mb-5"/>
           </Link>
         </div>
 
@@ -141,21 +146,9 @@ const ServiceSlider: React.FC = () => {
                     {service.title}
                   </h3>
                   <p className="text-gray-600">{service.description}</p>
-                  <button className="mt-6 text-orange-500 font-medium hover:text-orange-600 transition-colors flex items-center">
-                    Learn more
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 ml-1"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
+                  <Link to="/services">
+                    <Gradient_Btn text="Learn more" onClick={() => {scrollToTop()}} gradientOnHover={true} className="mt-6"/>
+                  </Link>
                 </div>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import mainImage from "../assets/images/WelcomeToOurCompany1.jpg";
 import secondaryImage from "../assets/images/WelcomeToOurCompany2.jpg";
+import Gradient_Btn from "./Gradient_Btn";
 
 const WelcomeToOurCompany: React.FC = () => {
   return (
@@ -9,17 +10,37 @@ const WelcomeToOurCompany: React.FC = () => {
         {/* Image Section */}
         <div className="relative flex-1">
           <div className="relative">
-            {/* Main image with orange border */}
-            <div className="border-t-4 border-l-4 border-orange-500 pt-4 pl-4 rounded-tl-lg">
-              <img
-                src={mainImage}
-                alt="Cleaning professionals team"
-                className="w-full rounded-lg shadow-md"
-              />
+            {/* Main image with gradient border */}
+            <div className="relative">
+              {/* The actual image */}
+              <div className="relative" style={{ marginTop: "4px", marginLeft: "4px" }}>
+                <img
+                  src={mainImage}
+                  alt="Cleaning professionals team"
+                  className="w-full rounded-lg shadow-md"
+                />
+                
+                {/* Gradient borders - positioned absolutely to be directly on the image */}
+                <div 
+                  className="absolute top-0 left-0 h-1 w-full rounded-tl-lg rounded-tr-lg"
+                  style={{ 
+                    background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+                    transform: "translateY(-100%)"
+                  }}
+                ></div>
+                
+                <div 
+                  className="absolute top-0 left-0 w-1 h-full rounded-tl-lg rounded-bl-lg"
+                  style={{ 
+                    background: "linear-gradient(150deg, #8C6D9E, #F1653D, #FAEA8F)",
+                    transform: "translateX(-100%)"
+                  }}
+                ></div>
+              </div>
             </div>
 
             {/* Overlapping image */}
-            <div className="absolute bottom-[-40px] right-[-40px] w-1/3">
+            <div className="absolute bottom-[-40px] right-[-40px] w-1/3 z-10" >
               <img
                 src={secondaryImage}
                 alt="Cleaning professional at work"
@@ -71,9 +92,7 @@ const WelcomeToOurCompany: React.FC = () => {
           </div>
 
           {/* CTA Button */}
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors">
-            Book Now
-          </button>
+          <Gradient_Btn text="Book Now" />
         </div>
       </div>
     </div>

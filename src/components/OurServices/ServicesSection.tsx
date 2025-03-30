@@ -1,5 +1,5 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import Gradient_Btn from "../Gradient_Btn";
 
 // Import images from assets
 import officeCleaningImg from "../../assets/images/Image.jpg";
@@ -76,16 +76,13 @@ const ServicesSection: React.FC = () => {
           {service.title}
         </h3>
         <p className="text-gray-600 mb-4">{service.description}</p>
-        <button
-          className={`flex items-center gap-2 px-4 py-2 rounded border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors mt-auto ${
-            service.title === "Spring Cleaning"
-              ? "bg-[#FF9800] !text-white border-[#FF9800] hover:bg-[#FF9800]"
-              : ""
-          }`}
-        >
-          Book Now
-          <FaArrowRight className="text-sm" />
-        </button>
+        <div className="mt-auto flex items-center">
+          <Gradient_Btn 
+            text="Book Now"
+            gradientOnHover={service.title !== "Spring Cleaning"}
+            className="flex items-center gap-2"
+          />
+        </div>
       </div>
     );
   };
