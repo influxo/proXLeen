@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 interface GradientBtnProps {
-  text: any;
+  text: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit" | "reset";
