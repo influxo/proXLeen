@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/OrangeLogo.png";
 import Gradient_Btn from "./Gradient_Btn";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
@@ -48,20 +53,31 @@ const Navbar: React.FC = () => {
           <div className="hidden lg:flex space-x-8">
             <Link
               to="/"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/about")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
             >
               About Us
             </Link>
-
             <Link
               to="/services"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/services")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
             >
               Services
             </Link>
@@ -111,49 +127,77 @@ const Navbar: React.FC = () => {
           <div className="flex flex-col space-y-4">
             <Link
               to="/"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
               onClick={toggleDrawer}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/about")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
               onClick={toggleDrawer}
             >
               About Us
             </Link>
             <Link
               to="/showrooms"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/showrooms")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
               onClick={toggleDrawer}
             >
               Showrooms
             </Link>
             <Link
               to="/services"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/services")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
               onClick={toggleDrawer}
             >
               Services
             </Link>
             <Link
               to="/medical-areas"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/medical-areas")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
               onClick={toggleDrawer}
             >
               Medical Areas
             </Link>
             <Link
               to="/facade-cleaning"
-              className="text-white hover:text-[#FF9800] transition-colors"
+              className={`transition-colors ${
+                isActive("/facade-cleaning")
+                  ? "text-[#FF9800] font-semibold"
+                  : "text-white hover:text-[#FF9800]"
+              }`}
               onClick={toggleDrawer}
             >
               Facade Cleaning
             </Link>
             <Link
               to="/contact"
-              className="bg-[#FF9800] hover:bg-[#ff9900e6] text-white font-medium py-3 px-6 rounded-md transition-colors text-center"
+              className={`bg-[#FF9800] hover:bg-[#ff9900e6] text-white font-medium py-3 px-6 rounded-md transition-colors text-center ${
+                isActive("/contact")
+                  ? "bg-[#FF9800] font-semibold"
+                  : "bg-[#FF9800] hover:bg-[#ff9900e6]"
+              }`}
               onClick={toggleDrawer}
             >
               Contact Us
