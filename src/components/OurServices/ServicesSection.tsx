@@ -1,5 +1,6 @@
 import React from "react";
 import Gradient_Btn from "../Gradient_Btn";
+import { useNavigate } from "react-router-dom";
 
 // Import images from assets
 import officeCleaningImg from "../../assets/images/Image.jpg";
@@ -8,56 +9,78 @@ import houseCleaningImg from "../../assets/images/bottle.jpg";
 
 // Service type definition
 interface ServiceType {
-  id: number;
+  slug: string;
   title: string;
   image: string;
   description: string;
 }
 
 const ServicesSection: React.FC = () => {
+  const navigate = useNavigate();
   // Service data
   const services: ServiceType[] = [
     {
-      id: 1,
-      title: "Office Cleaning",
+      slug: "kantoorgebouwen",
+      title: "Kantoorgebouwen",
       image: officeCleaningImg,
       description:
-        "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services.",
+        "Bij Axo Clean nemen we kantoorreiniging serieus. Ons ervaren team biedt grondige en resultaatgerichte reinigingsservices, aangepast aan uw behoeften.",
     },
     {
-      id: 2,
-      title: "Spring Cleaning",
+      slug: "schoonmaak-winkels",
+      title: "Schoonmaak winkels",
       image: springCleaningImg,
       description:
-        "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services.",
+        "Onze diensten omvatten schappenreiniging, vloerreiniging, desinfectie en meer. Wij bieden retail schoonmaak op maat, afgestemd op uw specifieke eisen en budget.",
     },
     {
-      id: 3,
-      title: "House Cleaning",
+      slug: "medische-ruimtes",
+      title: "Medische ruimtes",
       image: houseCleaningImg,
       description:
-        "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services.",
+        "Hygiëne in de gezondheidszorg is van het grootste belang. Axo Clean begrijpt de specifieke behoeften van medische en tandheelkundige praktijken.",
     },
     {
-      id: 4,
-      title: "Office Cleaning",
+      slug: "showrooms",
+      title: "Showrooms",
       image: officeCleaningImg,
       description:
-        "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services.",
+        "Een schone showroom is cruciaal voor het presenteren van uw producten aan potentiële klanten en partners.",
     },
     {
-      id: 5,
-      title: "Spring Cleaning",
+      slug: "horeca",
+      title: "Horeca",
       image: springCleaningImg,
       description:
-        "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services.",
+        "Onze diensten omvatten keukenreiniging, eetruimtereiniging, en meer. Wij passen onze schoonmaak aan de specifieke behoeften van uw restaurant aan.",
     },
     {
-      id: 6,
-      title: "House Cleaning",
+      slug: "hotels",
+      title: "Hotels",
       image: houseCleaningImg,
       description:
-        "While we can customize your cleaning plan to suit your needs, most clients schedule regular cleaning services.",
+        "Housekeeping in hotels is essentieel voor de gastenervaring. Onze housekeeping services zorgen voor een onberispelijke en gastvrije omgeving.",
+    },
+    {
+      slug: "industriële-schoonmaak",
+      title: "Industriële schoonmaak",
+      image: houseCleaningImg,
+      description:
+        "Industriële faciliteiten vereisen gespecialiseerde reiniging. Ons team is getraind en uitgerust om de uitdagingen van industriële schoonmaak aan te pakken, inclusief machines en apparatuur.",
+    },
+    {
+      slug: "schoonmaak-renovatie",
+      title: "Schoonmaak Renovatie",
+      image: houseCleaningImg,
+      description:
+        "Renovatiewerkzaamheden kunnen veel stof en rommel achterlaten. Axo Clean biedt professionele schoonmaak na renovatie om uw ruimte weer in optimale staat te brengen.",
+    },
+    {
+      slug: "festivals-en-evenementen",
+      title: "Festivals en evenementen",
+      image: houseCleaningImg,
+      description:
+        "Onze schoonmaakdiensten na festivals en evenementen zijn ontworpen om u te helpen bij een grondige en efficiënte opruiming, zodat u zich geen zorgen hoeft te maken over de nawerkingen van uw evenement.",
     },
   ];
 
@@ -77,10 +100,11 @@ const ServicesSection: React.FC = () => {
         </h3>
         <p className="text-gray-600 mb-4">{service.description}</p>
         <div className="mt-auto flex items-center">
-          <Gradient_Btn 
-            text="Book Now"
-            gradientOnHover={service.title !== "Spring Cleaning"}
+          <Gradient_Btn
+            text="Lees meer"
+            gradientOnHover={true}
             className="flex items-center gap-2"
+            onClick={() => navigate(`/services/${service.slug}`)}
           />
         </div>
       </div>
@@ -108,7 +132,7 @@ const ServicesSection: React.FC = () => {
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
+          <ServiceCard key={service.slug} service={service} />
         ))}
       </div>
 
