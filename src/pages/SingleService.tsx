@@ -8,11 +8,14 @@ interface ServiceData {
   title: string;
   description: string;
   features: string[];
+  servicePageText: string;
 }
 
 const serviceData: Record<string, ServiceData> = {
   kantoorgebouwen: {
     title: "Kantoorgebouwen",
+    servicePageText:
+      "Een grondige en resultaatgerichte aanpak voor kantoorreiniging. Daar gaan we voor! Ons team van ervaren professionals staat klaar om hoogwaardige schoonmaakdiensten te leveren die aansluiten bij uw specifieke behoeften.",
     description:
       "Bij Proxleen nemen we kantoorreiniging serieus. Ons ervaren team biedt grondige en resultaatgerichte reinigingsservices, aangepast aan uw behoeften.",
     features: [
@@ -26,6 +29,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   "schoonmaak-winkels": {
     title: "Schoonmaak winkels",
+    servicePageText:
+      "Elk type winkel heeft zijn eigen unieke behoeften als het gaat om schoonmaak en onderhoud. Of u nu een boetiek, supermarkt, boekenwinkel, elektronicawinkel of een andere soort winkel heeft.",
     description:
       "Onze diensten omvatten schappenreiniging, vloerreiniging, desinfectie en meer. Wij bieden retail schoonmaak op maat, afgestemd op uw specifieke eisen en budget.",
     features: [
@@ -39,6 +44,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   "medische-ruimtes": {
     title: "Medische ruimtes",
+    servicePageText:
+      "Onze schoonmaakprofessionals worden getraind om te werken in medische omgevingen en zijn op de hoogte van de nieuwste richtlijnen en best practices.",
     description:
       "Hygiëne in de gezondheidszorg is van het grootste belang. Axo Clean begrijpt de specifieke behoeften van medische en tandheelkundige praktijken.",
     features: [
@@ -52,6 +59,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   showrooms: {
     title: "Showrooms",
+    servicePageText:
+      "Een perfecte presentatie is van cruciaal belang in showrooms en presentatieruimtes. Uw producten moeten tot hun recht komen en klanten moeten zich welkom voelen in de ruimte.",
     description:
       "Een schone showroom is cruciaal voor het presenteren van uw producten aan potentiële klanten en partners.",
     features: [
@@ -65,6 +74,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   horeca: {
     title: "Horeca",
+    servicePageText:
+      "Onze schoonmaakprofessionals zijn speciaal getraind in het reinigen van keukens en keukenapparatuur volgens de hoogste normen.",
     description:
       "Onze diensten omvatten keukenreiniging, eetruimtereiniging, en meer. Wij passen onze schoonmaak aan de specifieke behoeften van uw restaurant aan.",
     features: [
@@ -78,6 +89,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   hotels: {
     title: "Hotels",
+    servicePageText:
+      "Onze housekeeping services zijn specifiek ontworpen om hotels te voorzien van een onberispelijke en gastvrije omgeving, waarin gasten zich welkom, comfortabel en verzorgd voelen.",
     description:
       "Housekeeping in hotels is essentieel voor de gastenervaring. Onze housekeeping services zorgen voor een onberispelijke en gastvrije omgeving.",
     features: [
@@ -91,6 +104,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   "industriële-schoonmaak": {
     title: "Industriële schoonmaak",
+    servicePageText:
+      "Of het nu gaat om fabrieken, magazijnen, productiefaciliteiten of andere industriële ruimtes, wij zijn uw betrouwbare partner voor zakelijke hygiëne en veiligheid.",
     description:
       "Industriële faciliteiten vereisen gespecialiseerde reiniging. Ons team is getraind en uitgerust om de uitdagingen van industriële schoonmaak aan te pakken, inclusief machines en apparatuur.",
     features: [
@@ -104,6 +119,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   "schoonmaak-renovatie": {
     title: "Schoonmaak Renovatie",
+    servicePageText:
+      "Onze schoonmaakdiensten na renovatie zijn ontworpen om de oorspronkelijke pracht van uw vernieuwde ruimte te herstellen.",
     description:
       "Renovatiewerkzaamheden kunnen veel stof en rommel achterlaten. Axo Clean biedt professionele schoonmaak na renovatie om uw ruimte weer in optimale staat te brengen.",
     features: [
@@ -117,6 +134,8 @@ const serviceData: Record<string, ServiceData> = {
   },
   "festivals-en-evenementen": {
     title: "Festivals en evenementen",
+    servicePageText:
+      "Onze schoonmaakdiensten na festivals en evenementen zijn ontworpen om u te helpen bij een grondige en efficiënte opruiming, zodat u zich geen zorgen hoeft te maken over de nawerkingen van uw evenement.",
     description:
       "Onze schoonmaakdiensten na festivals en evenementen zijn ontworpen om u te helpen bij een grondige en efficiënte opruiming, zodat u zich geen zorgen hoeft te maken over de nawerkingen van uw evenement.",
     features: [
@@ -159,7 +178,7 @@ const SingleService: React.FC = () => {
               {service.title}
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              {service.description}
+              {service.servicePageText}
             </p>
 
             {/* Features Grid */}

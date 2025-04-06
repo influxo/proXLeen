@@ -13,6 +13,7 @@ interface ServiceType {
   title: string;
   image: string;
   description: string;
+  // servicePageText?: string;
 }
 
 const ServicesSection: React.FC = () => {
