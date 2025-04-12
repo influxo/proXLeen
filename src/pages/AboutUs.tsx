@@ -17,7 +17,7 @@ const AboutUs: React.FC = () => {
   }, []);
   return (
     <div className="">
-      <div data-aos="fade-down" data-aos-delay="100">
+      <div data-aos="fade-in" data-aos-delay="100">
         <Hero />
       </div>
       <div data-aos="fade-up" data-aos-delay="100">

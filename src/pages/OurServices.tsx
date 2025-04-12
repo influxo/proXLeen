@@ -16,7 +16,7 @@ const OurServices: React.FC = () => {
 
   return (
     <div>
-      <div data-aos="fade-down" data-aos-delay="100">
+      <div data-aos="fade-in" data-aos-delay="100">
         <Hero />
       </div>
       <div data-aos="fade-right" data-aos-delay="100">

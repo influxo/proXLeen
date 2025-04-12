@@ -353,7 +353,7 @@ const SingleService: React.FC = () => {
 
   return (
     <div>
-      <div data-aos="fade-down" data-aos-delay="100">
+      <div data-aos="fade-in" data-aos-delay="100">
         <Hero />
       </div>
 
