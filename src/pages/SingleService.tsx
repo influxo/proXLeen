@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Hero from "../components/Home/Hero";
 import cleaningImage from "../assets/images/Image.jpg";
 import { useParams } from "react-router-dom";
+import AOS from "aos";
 
 interface InfoSection {
   title: string;
@@ -332,6 +333,12 @@ const SingleService: React.FC = () => {
   const [service, setService] = useState<ServiceData | null>(null);
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      // offset: 100, // offset (in px) from the original trigger point
+      // easing: "ease-in-out",
+    });
     // Set default service if slug doesn't match any service
     if (slug && serviceData[slug]) {
       setService(serviceData[slug]);
@@ -346,12 +353,18 @@ const SingleService: React.FC = () => {
 
   return (
     <div>
-      <Hero />
+      <div data-aos="fade-in" data-aos-delay="100">
+        <Hero />
+      </div>
 
       <div className="px-[10%] mx-auto  py-16 md:py-24">
         <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Text Section */}
-          <div className="flex-1 md:pr-8">
+          <div
+            data-aos="fade-right"
+            data-aos-delay="100"
+            className="flex-1 md:pr-8"
+          >
             <h2 className="text-4xl font-bold text-gray-800 mb-6">
               {service.title}
             </h2>
@@ -376,7 +389,11 @@ const SingleService: React.FC = () => {
           </div>
 
           {/* Image Section */}
-          <div className="flex-1 mt-12 md:mt-0">
+          <div
+            data-aos="fade-left"
+            data-aos-delay="100"
+            className="flex-1 mt-12 md:mt-0"
+          >
             <img
               src={cleaningImage}
               alt="Professional cleaning service"
