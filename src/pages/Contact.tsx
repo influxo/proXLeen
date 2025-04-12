@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import backgroundImage from "../assets/images/Background.jpg";
-
+import AOS from "aos";
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name1: "",
@@ -37,6 +37,15 @@ const Contact: React.FC = () => {
     });
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      // offset: 100, // offset (in px) from the original trigger point
+      // easing: "ease-in-out",
+    });
+  }, []);
+
   return (
     <div className="relative bg-white min-h-screen">
       <div className="absolute lg:top-16 z-50 px-[10%] w-full">
@@ -64,7 +73,11 @@ const Contact: React.FC = () => {
         <div className="px-[10%]  lg:py-16 relative z-10">
           <div className="flex flex-col lg:flex-row justify-between lg:items-center">
             {/* Left side - Contact Information */}
-            <div className="text-white lg:p-10 lg:w-1/2 relative hidden lg:block">
+            <div
+              className="text-white lg:p-10 lg:w-1/2 relative hidden lg:block"
+              data-aos="fade-right"
+              data-aos-delay="100"
+            >
               <div className=" lg:ml-auto lg:mr-0 lg:pr-10">
                 <h2 className="text-5xl font-bold mb-6">Contact us</h2>
                 <p className="mb-8 opacity-90">
@@ -100,7 +113,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Right side - Contact Form */}
-            <div className="lg:pl-6">
+            <div className="lg:pl-6" data-aos="fade-left" data-aos-delay="100">
               <div className="bg-white rounded-2xl shadow-lg p-8 lg:max-w-xl  lg:mr-auto lg:ml-0">
                 <h3 className="text-xl font-semibold mb-4">
                   Request A Quote — let's work together.
@@ -247,7 +260,11 @@ const Contact: React.FC = () => {
       </div>
 
       {/* Map Section */}
-      <div className="px-[10%] mx-auto  pb-16">
+      <div
+        className="px-[10%] mx-auto  pb-16"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <div className="rounded-lg overflow-hidden shadow-lg">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.0195508303896!2d5.2273064!3d45.7389383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQ0JzIwLjIiTiA1wrAxMycyNi4zIkU!5e0!3m2!1sen!2sus!4v1616682224289!5m2!1sen!2sus"
