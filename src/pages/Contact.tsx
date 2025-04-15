@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative bg-white min-h-screen">
+    <div className="relative bg-white min-h-screen overflow-x-hidden">
       <div className="absolute lg:top-16 z-50 px-[10%] w-full">
         <Navbar />
       </div>

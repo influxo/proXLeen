@@ -20,7 +20,7 @@ const Home: React.FC = () => {
     });
   }, []);
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <div data-aos="fade-in" data-aos-delay="100">
         <Hero />
       </div>
