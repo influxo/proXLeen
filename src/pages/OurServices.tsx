@@ -15,7 +15,7 @@ const OurServices: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div data-aos="fade-in" data-aos-delay="100">
         <Hero />
       </div>

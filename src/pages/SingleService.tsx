@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../components/Home/Hero";
 import cleaningImage from "../assets/images/Image.jpg";
+import bgImage from "../assets/images/Background.jpg";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
-import bgImage from "../assets/images/Background.jpg";
 import Gradient_Btn from "../components/Gradient_Btn";
 
 interface InfoSection {
@@ -453,7 +453,7 @@ const SingleService: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div data-aos="fade-in" data-aos-delay="100">
         <Hero />
       </div>
@@ -473,7 +473,7 @@ const SingleService: React.FC = () => {
             <div
               data-aos="fade-left"
               data-aos-delay="100"
-              className="flex-1 mt-12 md:mt-0"
+              className="flex-1 mt-12 md:mt-0 mb-8"
             >
               <img
                 src={cleaningImage}
@@ -494,6 +494,55 @@ const SingleService: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {service.bulletPoints && (
+        <div className="py-16 md:py-24 bg-white">
+          <div className="pl-[10%] mx-auto flex flex-col md:flex-row items-stretch gap-12 min-h-[500px]">
+            <div data-aos="fade-right" data-aos-delay="100" className="flex-1">
+              <h2 className="text-4xl font-bold text-gray-800 mb-12">
+                {service.bulletPoints.title}
+              </h2>
+              <div className="space-y-6">
+                {service.bulletPoints.text.map((point, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center bg-gray-100 rounded-lg p-4 hover:bg-orange-100 transition-all"
+                  >
+                    <div className="bg-orange-500 rounded-full p-2 mr-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-white"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-gray-700 text-lg">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div
+              data-aos="fade-left"
+              data-aos-delay="100"
+              className="flex-1 hidden md:block"
+            >
+              <div className="h-full w-full">
+                <img
+                  src={cleaningImage}
+                  alt="Professional cleaning service"
+                  className="h-full w-full object-cover rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {service.bulletPointsCards && (
         <div className="bg-gray-50 py-16 md:py-24">
@@ -517,11 +566,11 @@ const SingleService: React.FC = () => {
         </div>
       )}
 
-      <div className="relative ">
+      <div className="relative">
         <img
           src={bgImage}
           alt=""
-          className="h-[500px] brightness-75 w-full object-cover"
+          className="h-screen lg:h-[500px] brightness-75 w-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center px-[10%]">
           <h1 className="text-3xl font-bold text-white mb-4">
