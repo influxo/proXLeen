@@ -9,11 +9,20 @@ interface InfoSection {
   text: string;
 }
 
+interface BulletPoint {
+  title: string;
+  text: string[];
+}
+interface BulletPointCards {
+  title: string;
+  text: string[];
+}
+
 // Define service types
 interface ServiceData {
   title: string;
   description: string;
-  features: string[];
+  features?: string[];
   servicePageText: string;
   info: {
     firstSection?: InfoSection;
@@ -23,20 +32,34 @@ interface ServiceData {
     fifthSection?: InfoSection;
     sixthSection?: InfoSection;
   };
+  bulletPoints?: BulletPoint;
+  bulletPointsCards?: BulletPointCards;
 }
 
 const serviceData: Record<string, ServiceData> = {
   kantoorgebouwen: {
     title: "Kantoorgebouwen",
+    bulletPoints: {
+      title: "Enkele mogelijkheden: ",
+      text: [
+        "Dagelijkse en periodieke reinigingsschema's.",
+        "Stofverwijdering en oppervlaktereiniging.",
+        "Desinfectie van gemeenschappelijke ruimtes en contactpunten.",
+        "Vloeronderhoud en tapijtreiniging.",
+        "Raamreiniging en glazenwassen.",
+        "Verwijdering van afval en recyclage.",
+      ],
+    },
     info: {
       firstSection: {
         title: "Het belang van een schoon kantoor",
         text: "Een schoon kantoor is meer dan alleen maar een prettige werkplek; het is een hoeksteen voor succesvol werken. Een schone werkomgeving bevordert niet alleen de gezondheid en het welzijn van uw medewerkers, maar het straalt ook professionaliteit uit naar klanten en zakenpartners. Het minimaliseert de verspreiding van ziektekiemen, verhoogt de productiviteit en draagt bij aan de algehele tevredenheid op de werkvloer. Bij Axo Clean nemen we een schoon kantoor dan ook helemaal serieus. ",
       },
-      secondSection: {
-        title: "Enkele mogelijkheden: ",
-        text: "Dagelijkse en periodieke reinigingsschema's. Stofverwijdering en oppervlaktereiniging. Desinfectie van gemeenschappelijke ruimtes en contactpunten. Vloeronderhoud en tapijtreiniging. Raamreiniging en glazenwassen. Verwijdering van afval en recyclage.",
-      },
+
+      // secondSection: {
+      //   title: "Enkele mogelijkheden: ",
+      //   text: "Dagelijkse en periodieke reinigingsschema's. Stofverwijdering en oppervlaktereiniging. Desinfectie van gemeenschappelijke ruimtes en contactpunten. Vloeronderhoud en tapijtreiniging. Raamreiniging en glazenwassen. Verwijdering van afval en recyclage.",
+      // },
       thirdSection: {
         title: "Maatwerk voor verschillende kantooromgevingen",
         text: "Elk kantoor is uniek, met specifieke eisen en wensen op het gebied van schoonmaak. Of u nu een groot bedrijfskantoor, een creatieve co-workingruimte, of een medische praktijk runt, wij passen onze diensten aan om aan uw specifieke behoeften te voldoen. Onze flexibele aanpak zorgt ervoor dat we uw kantooromgeving optimaal kunnen onderhouden, zodat u zich kunt concentreren op uw kernactiviteiten, terwijl wij zorgen voor een onberispelijke schoonmaak.",
@@ -61,10 +84,22 @@ const serviceData: Record<string, ServiceData> = {
   },
   "schoonmaak-winkels": {
     title: "Schoonmaak winkels",
+    bulletPoints: {
+      title:
+        "Onze aanpak voor verschillende soorten winkels omvat onder andere:",
+      text: [
+        "Reiniging van schappen en productdisplays.",
+        "Vloerreiniging en polijsten.",
+        "Desinfectie van winkelwagentjes en handgrepen.",
+        "Raamreiniging voor een helder uitzicht op producten.",
+        "Verwijdering van vlekken en morsingen.",
+        "Afvalverwijdering en recyclingbeheer.",
+      ],
+    },
     info: {
       firstSection: {
         title: "Winkelreiniging voor een positieve klantervaring",
-        text: "Een eerste blik kan een blijvende indruk achterlaten, en dat geldt zeker voor uw winkel. Een schone en opgeruimde winkelomgeving is essentieel om klanten aan te trekken, hun verblijf te verlengen en hun koopervaring te verbeteren. Bij Axo Clean gaan we dan ook voor een vlekkeloos schone winkelruimte en streven we ernaar om bij te dragen aan een positieve klantervaring. Onze winkelreinigingsdiensten zijn ontworpen om uw winkel er altijd op zijn best te laten uitzien, ongeacht uw branche.",
+        text: "Een eerste blik kan een blijvende indruk achterlaten, en dat geldt zeker voor uw winkel. Een schone en opgeruimde winkelomgeving is essentieel om klanten aan te trekken, hun verblijf te verlengen en hun koopervaring te verbeteren. Bij Axo Clean gaan we dan ook voor een vlekkeloos schone winkelruimte en streven we ernaar om bij te dragen aan een positieve klantervaring. Onze winkelreinigingsdiensten zijn ontworpen om deze impact te maximaliseren en uw winkel te laten stralen.",
       },
       secondSection: {
         title: "Specifieke eisen voor verschillende soorten winkels",
@@ -99,6 +134,17 @@ const serviceData: Record<string, ServiceData> = {
   },
   "medische-ruimtes": {
     title: "Medische ruimtes",
+    bulletPoints: {
+      title:
+        "Onze diensten voor medische en tandheelkundige praktijken omvatten onder andere:",
+      text: [
+        "Desinfectie van behandelkamers en wachtruimtes.",
+        "Reiniging en sterilisatie van medische apparatuur.",
+        "Vloerreiniging en onderhoud.",
+        "Verwijdering van biologisch afval en scherpe voorwerpen.",
+        "Grondige reiniging van sanitaire voorzieningen.",
+      ],
+    },
     info: {
       firstSection: {
         title: "Hygiëne in de gezondheidszorg",
@@ -138,6 +184,16 @@ const serviceData: Record<string, ServiceData> = {
   },
   showrooms: {
     title: "Showrooms",
+    bulletPoints: {
+      title: "Enkele mogelijkheden: ",
+      text: [
+        "Grondige reiniging van vloeren en oppervlakken.",
+        "Stofverwijdering en glasreiniging.",
+        "Verlichting en armaturen reinigen voor optimale presentatie.",
+        "Desinfectie van contactpunten.",
+        "Periodieke dieptereiniging voor behoud van showroomkwaliteit. ",
+      ],
+    },
     info: {
       firstSection: {
         title: "Impact van een schone showroom",
@@ -150,10 +206,6 @@ const serviceData: Record<string, ServiceData> = {
       thirdSection: {
         title: "Specifieke eisen voor het onderhoud van showrooms",
         text: "Showrooms en presentatieruimtes hebben specifieke eisen als het gaat om schoonmaak en onderhoud. Dit kan variëren afhankelijk van het type producten dat u presenteert, de vloermaterialen, de verlichting en meer. Bij Axo Clean zijn we bekend met deze specifieke behoeften en passen we onze schoonmaakdiensten aan om aan al uw vereisten te voldoen. ",
-      },
-      fourthSection: {
-        title: "Offerte schoonmaak showroom",
-        text: "U wilt uw showroom in schitterende staat zodat uw klanten naar hartenlust kunnen rondkijken en kiezen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
       },
     },
     servicePageText:
@@ -204,6 +256,15 @@ const serviceData: Record<string, ServiceData> = {
   },
   hotels: {
     title: "Hotels",
+    bulletPointsCards: {
+      title: "Waarom u voor ons kiest",
+      text: [
+        "Gastgerichte Professionals: Ons team van housekeepers is zorgvuldig geselecteerd en getraind om de gastgerichtheid van uw hotel te weerspiegelen. We begrijpen de unieke behoeften van de hotelbranche en zetten ons in voor de tevredenheid van uw gasten.",
+        "Flexibiliteit: We passen onze housekeeping services aan op basis van uw specifieke wensen en operationele schema. Of het nu gaat om dagelijkse schoonmaak, periodieke dieptereiniging of specifieke verzoeken, we zijn er om aan uw behoeften te voldoen.",
+        "Grondige Reiniging: Onze housekeepers voeren een grondige reiniging uit van alle kamers en gemeenschappelijke ruimtes, inclusief stofzuigen, dweilen, stofafname, het verschonen van beddengoed en handdoeken, keuken- en badkamerreiniging, en meer. We leggen de lat hoog als het gaat om netheid en hygiëne.",
+        "Betrouwbare Service: In de hotelbranche is betrouwbaarheid essentieel. U kunt op ons rekenen voor een punctuele en betrouwbare service die uw gasten altijd tevreden stelt.",
+      ],
+    },
     info: {
       firstSection: {
         title: "Waarom u voor ons kiest",
@@ -233,6 +294,15 @@ const serviceData: Record<string, ServiceData> = {
   },
   "industriële-schoonmaak": {
     title: "Industriële schoonmaak",
+    bulletPointsCards: {
+      title: "Waarom u voor ons kiest",
+      text: [
+        "Ervaring in de industrie: Ons team van schoonmaakprofessionals heeft uitgebreide ervaring in industriële schoonmaak en begrijpt de specifieke behoeften van de sector.",
+        "Veiligheid eerst: Veiligheid is een topprioriteit in industriële omgevingen. Wij volgen strikte veiligheidsprotocollen en zorgen ervoor dat onze schoonmaakactiviteiten de veiligheid van uw personeel niet in gevaar brengen.",
+        "Gespecialiseerde apparatuur: We beschikken over gespecialiseerde apparatuur en reinigingsmiddelen die geschikt zijn voor industriële omgevingen, inclusief het verwijderen van hardnekkige vervuilingen.",
+        "Flexibiliteit: We begrijpen dat de behoeften van industriële faciliteiten kunnen variëren. We passen onze diensten aan op basis van uw specifieke vereisten en schema.",
+      ],
+    },
     info: {
       firstSection: {
         title: "Waarom u voor ons kiest ",
@@ -262,6 +332,15 @@ const serviceData: Record<string, ServiceData> = {
   },
   "schoonmaak-renovatie": {
     title: "Schoonmaak Renovatie",
+    bulletPointsCards: {
+      title: "Waarom u voor ons kiest",
+      text: [
+        "Expertise: Renovatiewerkzaamheden kunnen stof, bouwresten en vuil achterlaten op plaatsen die moeilijk te bereiken zijn. Ons team van schoonmaakprofessionals heeft gespecialiseerde expertise en ervaring in het omgaan met deze uitdagingen.",
+        "Grondige reiniging: Wij voeren een grondige reiniging uit van alle oppervlakken, inclusief het verwijderen van bouwstof, verfresten, lijmresten en andere vervuilingen.",
+        "Veiligheid en gezondheid: Het is van het grootste belang dat uw renovatieproject veilig en gezond is. Onze schoonmaakdiensten omvatten desinfectie en sanitatie om ervoor te zorgen dat uw ruimte klaar is voor gebruik.",
+        "Tijd- en kostenbesparing: Onze efficiënte en professionele aanpak bespaart u tijd en kosten in vergelijking met zelf proberen te reinigen na renovatie.",
+      ],
+    },
     info: {
       firstSection: {
         title: "Schoonmaak na renovatie",
@@ -295,6 +374,15 @@ const serviceData: Record<string, ServiceData> = {
   },
   "festivals-en-evenementen": {
     title: "Festivals en evenementen",
+    bulletPointsCards: {
+      title: "Waarom kiezen onze schoonmaakdiensten na evenementen? ",
+      text: [
+        "Ervaring en expertise: Ons team heeft ruime ervaring in het schoonmaken van locaties na festivals en evenementen. We begrijpen de unieke uitdagingen die gepaard gaan met deze taak.",
+        "Efficiënte opruiming: We zorgen voor een snelle en efficiënte opruiming om de locatie zo snel mogelijk weer beschikbaar te maken voor andere activiteiten.",
+        "Milieubewustzijn: We streven naar milieuvriendelijke schoonmaakmethoden en recyclage, zodat we samen kunnen bijdragen aan een duurzamere toekomst.",
+        "Flexibiliteit: Of het nu gaat om een kleinschalig lokaal festival of een grootstedelijk evenement, we passen onze diensten aan op basis van uw specifieke behoeften en de omvang van het evenement. ",
+      ],
+    },
     info: {
       firstSection: {
         title: "Schoonmaak na festivals en evenementen ",
@@ -368,63 +456,53 @@ const SingleService: React.FC = () => {
             <h2 className="text-4xl font-bold text-gray-800 mb-6">
               {service.title}
             </h2>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            {/* Image Section */}
+            <div
+              data-aos="fade-left"
+              data-aos-delay="100"
+              className="flex-1 mt-12 md:mt-0"
+            >
+              <img
+                src={cleaningImage}
+                alt="Professional cleaning service"
+                className="w-full h-[500px] rounded-lg shadow-lg"
+              />
+            </div>
+            <p className="text-gray-600 mb-8 leading-relaxed xl:w-[80%] text-xl">
               {service.servicePageText}
             </p>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {service.features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <span className="text-orange-500">●</span>
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
 
             {/* CTA Button */}
             <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md transition-colors">
               Contact Us
             </button>
           </div>
-
-          {/* Image Section */}
-          <div
-            data-aos="fade-left"
-            data-aos-delay="100"
-            className="flex-1 mt-12 md:mt-0"
-          >
-            <img
-              src={cleaningImage}
-              alt="Professional cleaning service"
-              className="w-full rounded-lg shadow-lg"
-            />
-          </div>
         </div>
       </div>
 
-      {/* Practices And Medical Spaces Section */}
-      <div className="bg-gray-50 py-16 md:py-24">
-        <div className="px-[10%] mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
-            Practices And Medical Spaces
-          </h2>
+      {service.bulletPointsCards && (
+        <div className="bg-gray-50 py-16 md:py-24">
+          <div className="px-[10%] mx-auto">
+            <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
+              {service.bulletPointsCards.title}
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {service.info &&
-              Object.entries(service.info).map(([key, info]) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {service.bulletPointsCards.text.map((item, index) => (
                 <div
-                  key={key}
+                  key={index}
                   className="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105"
                 >
                   <div className="w-12 h-12 bg-orange-500 mb-6"></div>
-                  <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
-                  <p className="text-gray-600 text-sm">{info.text}</p>
+                  <p className="text-gray-600">{item}</p>
                 </div>
               ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
