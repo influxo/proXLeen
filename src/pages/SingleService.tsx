@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../components/Home/Hero";
 import cleaningImage from "../assets/images/Image.jpg";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
+import bgImage from "../assets/images/Background.jpg";
+import Gradient_Btn from "../components/Gradient_Btn";
 
 interface InfoSection {
   title: string;
@@ -24,6 +27,10 @@ interface ServiceData {
   description: string;
   features?: string[];
   servicePageText: string;
+  quote: {
+    title: string;
+    text: string;
+  };
   info: {
     firstSection?: InfoSection;
     secondSection?: InfoSection;
@@ -64,10 +71,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "Maatwerk voor verschillende kantooromgevingen",
         text: "Elk kantoor is uniek, met specifieke eisen en wensen op het gebied van schoonmaak. Of u nu een groot bedrijfskantoor, een creatieve co-workingruimte, of een medische praktijk runt, wij passen onze diensten aan om aan uw specifieke behoeften te voldoen. Onze flexibele aanpak zorgt ervoor dat we uw kantooromgeving optimaal kunnen onderhouden, zodat u zich kunt concentreren op uw kernactiviteiten, terwijl wij zorgen voor een onberispelijke schoonmaak.",
       },
-      fourthSection: {
-        title: "Offerte schoonmaak kantoor",
-        text: "Klaar om uzelf en uw medewerkers een piekfijn schoon kantoor te gunnen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Offerte schoonmaak kantoor",
+      text: "Klaar om uzelf en uw medewerkers een piekfijn schoon kantoor te gunnen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Een grondige en resultaatgerichte aanpak voor kantoorreiniging. Daar gaan we voor! Ons team van ervaren professionals staat klaar om hoogwaardige schoonmaakdiensten te leveren die aansluiten bij uw specifieke behoeften.",
@@ -114,10 +121,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "Retail schoonmaak op maat",
         text: "Bij Axo Clean begrijpen we dat elke winkel unieke behoeften heeft op het gebied van schoonmaak. Daarom bieden we retail schoonmaakdiensten op maat aan. We werken nauw samen met u om een schoonmaakplan te ontwikkelen dat volledig is afgestemd op uw specifieke eisen en budget. Onze flexibiliteit en aanpasbaarheid stellen ons in staat om uw winkel in topconditie te houden, zodat u zich kunt concentreren op het bieden van de best mogelijke winkelervaring aan uw klanten.",
       },
-      fifthSection: {
-        title: "Offerte schoonmaak winkel en retail",
-        text: "Klaar om uw klanten en medewerkers een piekfijne winkel te gunnen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Offerte schoonmaak winkel en retail",
+      text: "Klaar om uw klanten en medewerkers een piekfijne winkel te gunnen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Elk type winkel heeft zijn eigen unieke behoeften als het gaat om schoonmaak en onderhoud. Of u nu een boetiek, supermarkt, boekenwinkel, elektronicawinkel of een andere soort winkel heeft.",
@@ -164,10 +171,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "Veiligheid en naleving van regelgeving",
         text: "Ons team is op de hoogte van de relevante regelgeving en werkt volgens strikte veiligheidsprotocollen om ervoor te zorgen dat de schoonmaakwerkzaamheden niet interfereren met de medische procedures.",
       },
-      fifthSection: {
-        title: "Offerte schoonmaak praktijkruimte",
-        text: "Uw praktijkruimte in goede handen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Offerte schoonmaak praktijkruimte",
+      text: "Uw praktijkruimte in goede handen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Onze schoonmaakprofessionals worden getraind om te werken in medische omgevingen en zijn op de hoogte van de nieuwste richtlijnen en best practices.",
@@ -208,6 +215,10 @@ const serviceData: Record<string, ServiceData> = {
         text: "Showrooms en presentatieruimtes hebben specifieke eisen als het gaat om schoonmaak en onderhoud. Dit kan variëren afhankelijk van het type producten dat u presenteert, de vloermaterialen, de verlichting en meer. Bij Axo Clean zijn we bekend met deze specifieke behoeften en passen we onze schoonmaakdiensten aan om aan al uw vereisten te voldoen. ",
       },
     },
+    quote: {
+      title: "Offerte schoonmaak showroom",
+      text: "U wilt uw showroom in schitterende staat zodat uw klanten naar hartenlust kunnen rondkijken en kiezen? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
+    },
     servicePageText:
       "Een perfecte presentatie is van cruciaal belang in showrooms en presentatieruimtes. Uw producten moeten tot hun recht komen en klanten moeten zich welkom voelen in de ruimte.",
     description:
@@ -236,10 +247,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "Aanpassing aan de horecabranche",
         text: "De horecabranche is dynamisch en veeleisend, met specifieke behoeften als het gaat om schoonmaak. Bij Axo Clean begrijpen we dat en passen we onze diensten aan om aan de unieke eisen van uw restaurant of horecagelegenheid te voldoen. Of u nu een chic restaurant, een café, een fastfoodrestaurant of een ander type eetgelegenheid runt, wij begrijpen de verschillende behoeften en passen onze aanpak dienovereenkomstig aan. ",
       },
-      fourthSection: {
-        title: "Offerte schoonmaak horecazaak",
-        text: "U wilt uw horecazaak in schitterende staat zodat uw klanten naar hartenlust kunnen genieten van uw gastronomische pareltjes? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Offerte schoonmaak horecazaak",
+      text: "U wilt uw horecazaak in schitterende staat zodat uw klanten naar hartenlust kunnen genieten van uw gastronomische pareltjes? Schakel dan Axo Clean in. Contacteer ons voor meer informatie en een vrijblijvende offerte. Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Onze schoonmaakprofessionals zijn speciaal getraind in het reinigen van keukens en keukenapparatuur volgens de hoogste normen.",
@@ -274,10 +285,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "De mogelijkheden: ",
         text: "Kamerreiniging: Grondige schoonmaak en desinfectie van alle kamers, inclusief het verschonen van beddengoed en handdoeken. Gemeenschappelijke ruimtes: Reiniging van lobby's, gangen, eetruimtes, fitnesscentra en andere gemeenschappelijke ruimtes. Gastenservice: Wij zorgen voor extra voorzieningen voor uw gasten, zoals het bijvullen van minibars en het verzorgen van specifieke verzoeken. Organisatie: We helpen bij het organiseren en opruimen van kamers en opslagruimtes. ",
       },
-      thirdSection: {
-        title: "Contacteer ons voor de housekeeping in uw hotel",
-        text: "Met Axo Clean's housekeeping services voor hotels kunt u uw gasten een onvergetelijk en comfortabel verblijf bieden. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke housekeeping behoeften te bespreken. Wij zijn uw partner in gastvrijheid en netheid, zodat u zich kunt concentreren op het creëren van een uitzonderlijke hotelervaring voor uw gasten. Wij zijn als housekeeping bedrijf actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Contacteer ons voor de housekeeping in uw hotel",
+      text: "Met Axo Clean's housekeeping services voor hotels kunt u uw gasten een onvergetelijk en comfortabel verblijf bieden. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke housekeeping behoeften te bespreken. Wij zijn uw partner in gastvrijheid en netheid, zodat u zich kunt concentreren op het creëren van een uitzonderlijke hotelervaring voor uw gasten. Wij zijn als housekeeping bedrijf actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Onze housekeeping services zijn specifiek ontworpen om hotels te voorzien van een onberispelijke en gastvrije omgeving, waarin gasten zich welkom, comfortabel en verzorgd voelen.",
@@ -312,10 +323,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "Mogelijkheden in industriële schoonmaak ",
         text: "Algemene reiniging: Grondige reiniging van vloeren, muren, plafonds, en andere oppervlakken om stof, vuil en vuil te verwijderen. Machinereiniging: Schoonmaak en onderhoud van industriële machines en apparatuur om optimale prestaties te garanderen. Sanitatie en desinfectie: Desinfectie van oppervlakken om te voldoen aan gezondheids- en veiligheidsnormen. Afvalverwijdering: Beheer van afvalstoffen, inclusief gevaarlijk afval, volgens de geldende voorschriften. Hoge Reiniging: Reiniging van moeilijk bereikbare gebieden, zoals hoge plafonds, leidingen en ventilatiekanalen. ",
       },
-      thirdSection: {
-        title: "Offerte industriële reiniging",
-        text: "Met Axo Clean's industriële schoonmaakdiensten kunt u vertrouwen op een schone, veilige en efficiënte werkomgeving. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke industriële schoonmaakbehoeften te bespreken. Wij zijn er om uw industriële faciliteit in topconditie te houden, zodat u zich kunt concentreren op uw kernactiviteiten.  Wij zijn als industriële schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Offerte industriële reiniging",
+      text: "Met Axo Clean's industriële schoonmaakdiensten kunt u vertrouwen op een schone, veilige en efficiënte werkomgeving. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke industriële schoonmaakbehoeften te bespreken. Wij zijn er om uw industriële faciliteit in topconditie te houden, zodat u zich kunt concentreren op uw kernactiviteiten.  Wij zijn als industriële schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Of het nu gaat om fabrieken, magazijnen, productiefaciliteiten of andere industriële ruimtes, wij zijn uw betrouwbare partner voor zakelijke hygiëne en veiligheid.",
@@ -354,10 +365,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "Mogelijkheden ",
         text: "Verwijdering van bouwafval: Wij verwijderen bouwresten, verpakkingsmateriaal en andere rommel die is achtergelaten na renovatie. Stofverwijdering: Grondige stofverwijdering van alle oppervlakken, inclusief muren, plafonds, vloeren, en meubilair. Vloerreiniging: Schoonmaak en onderhoud van vloeren, inclusief tapijten, tegels, houten vloeren en meer. Raamreiniging: Reiniging van ramen, raamkozijnen en glazen deuren voor een helder uitzicht. Sanitatie en desinfectie: Desinfectie van oppervlakken om te zorgen voor een veilige en gezonde omgeving.",
       },
-      fourthSection: {
-        title: "Contacteer Ons voor een Verfrissend Nieuwe Start ",
-        text: "Met Axo Clean's schoonmaakdiensten na renovatie kunt u genieten van een frisse start in uw vernieuwde ruimte. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke behoeften te bespreken. Wij zijn er om uw vernieuwde ruimte te herstellen naar zijn oorspronkelijke pracht, klaar om te worden benut voor uw doeleinden.  Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Contacteer Ons voor een Verfrissend Nieuwe Start ",
+      text: "Met Axo Clean's schoonmaakdiensten na renovatie kunt u genieten van een frisse start in uw vernieuwde ruimte. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke behoeften te bespreken. Wij zijn er om uw vernieuwde ruimte te herstellen naar zijn oorspronkelijke pracht, klaar om te worden benut voor uw doeleinden.  Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Onze schoonmaakdiensten na renovatie zijn ontworpen om de oorspronkelijke pracht van uw vernieuwde ruimte te herstellen.",
@@ -396,10 +407,10 @@ const serviceData: Record<string, ServiceData> = {
         title: "Mogelijkheden ",
         text: "Verwijdering van afval en rommel: Wij verwijderen afval, lege bekers, verpakkingen en andere rommel die na het evenement is achtergebleven. Grondige reiniging van Terrein: Schoonmaak van de festival- of evenementenlocatie, inclusief de podia, stands, sanitaire voorzieningen, en parkeerplaatsen. Vloerreiniging: Opruimen en schoonmaken van vloeren, zowel binnen als buiten, om de locatie weer veilig en toegankelijk te maken. Herstel van groenvoorzieningen: Als er groenvoorzieningen zijn beschadigd tijdens het evenement, zorgen we voor herstel en herbeplanting. ",
       },
-      fourthSection: {
-        title: "Offerte schoonmaak na festivals en events",
-        text: "Met Axo Clean's schoonmaakdiensten na festivals en evenementen kunt u erop vertrouwen dat de locatie snel en grondig wordt opgeruimd. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke behoeften te bespreken. Wij zijn er om uw evenementlocatie weer in topconditie te brengen, klaar voor toekomstige festiviteiten en activiteiten.  Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
-      },
+    },
+    quote: {
+      title: "Offerte schoonmaak na festivals en events",
+      text: "Met Axo Clean's schoonmaakdiensten na festivals en evenementen kunt u erop vertrouwen dat de locatie snel en grondig wordt opgeruimd. Neem vandaag nog contact met ons op voor meer informatie, prijzen en om uw specifieke behoeften te bespreken. Wij zijn er om uw evenementlocatie weer in topconditie te brengen, klaar voor toekomstige festiviteiten en activiteiten.  Wij zijn als schoonmaakfirma actief in heel Vlaanderen: regio Gent (Aalter, Nevele, Nazareth, Wetteren, Lochristi, …), regio Anwerpen (Brasschaat, Schoten, Wijnegem, Boechout, Lier, Aarstelaar, Boom, Bornem, Temse, …) en regio Hasselt (Lummen, Zonhoven, Genk, Zutendaal, Diepenbeek)",
     },
     servicePageText:
       "Onze schoonmaakdiensten na festivals en evenementen zijn ontworpen om u te helpen bij een grondige en efficiënte opruiming, zodat u zich geen zorgen hoeft te maken over de nawerkingen van uw evenement.",
@@ -419,6 +430,8 @@ const serviceData: Record<string, ServiceData> = {
 const SingleService: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [service, setService] = useState<ServiceData | null>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
@@ -503,6 +516,30 @@ const SingleService: React.FC = () => {
           </div>
         </div>
       )}
+
+      <div className="relative ">
+        <img
+          src={bgImage}
+          alt=""
+          className="h-[500px] brightness-75 w-full object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col justify-center items-center px-[10%]">
+          <h1 className="text-3xl font-bold text-white mb-4">
+            {service.quote.title}
+          </h1>
+          <h1 className="text-xl font-semibold text-white mb-4 text-center">
+            {service.quote.text}
+          </h1>
+          <div className="flex gap-4 justify-between">
+            <Link to="/contact">
+              <Gradient_Btn
+                text="Contact"
+                onClick={() => navigate("/contact")}
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
