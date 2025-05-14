@@ -3,8 +3,26 @@ import backgroundImage from "../../assets/images/Background.jpg";
 import rocket from "../../assets/icons/Rocket.svg";
 import happy from "../../assets/icons/HappyClients.svg";
 import Navbar from "../Navbar";
+import { useLocation } from "react-router-dom";
 
 const Hero: React.FC = () => {
+  const location = useLocation();
+
+  const getCurrentPageName = () => {
+    switch (location.pathname) {
+      case "/":
+        return "Home";
+      case "/about":
+        return "About Us";
+      case "/services":
+        return "Services";
+      case "/contact":
+        return "Contact";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className="relative h-screen px-[10%]">
       {/* Background image with overlay */}
@@ -26,6 +44,7 @@ const Hero: React.FC = () => {
         {/* Title Section */}
         <div className="flex items-center justify-center flex-grow">
           <div className="text-center">
+            <h2 className="text-2xl font-semibold text-white mb-10">-{getCurrentPageName()}-</h2>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
               Professional
             </h1>
