@@ -10,12 +10,12 @@ import "./App.css";
 // import SingleService from "./pages/SingleService";
 
 const App: React.FC = () => {
-  const handleScrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const handleScrollTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <div>
